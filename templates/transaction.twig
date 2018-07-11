@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="{{ base_url() }}/"/>
+</head>
+<body>
+
+<center>
+<h1>Transaction Successfull!</h1>
+<p>*it will show the newest transaction</p>
+<div style="border:2px solid black;width: 500px; height:30px; margin: 0 auto;">
+Transaction ID: <span id="TRX_ID">{{ TRX_ID }} </span>
+</div>
+
+<div style="text-align:left; width: 500px; height:auto; margin: 0 auto;">
+<p>Seller: <span id="SELLER_NAME">{{ SELLER_NAME }} </span></p>
+<p>Delivery Service: <span id="DELIVERY_SERVICE">{{ DELIVERY_SERVICE }} </span></p>
+<p>Date  Order: <span id="DATE_ORDER">{{ DATE_ORDER }} </span></p>
+<p>Address Shipment: <span id="ADDRESS_SHIP">{{ ADDRESS_SHIP }} </span></p>
+</div>
+
+</center>
+</body>
+</html>

@@ -3,15 +3,17 @@ return [
     'settings' => [
         'displayErrorDetails' => true,
         'addContentLengthHeader' => false,
-        'determineRouteBeforeAppMiddleware' => true,
-        
-        'mailer' => [
-            'host' => getenv('MAIL_HOST'),
-            'username' => getenv('MAIL_USERNAME'),
-            'password' => getenv('MAIL_PASSWORD'),
-            'secure' => getenv('MAIL_ENCRYPTION'),
-            'port' => getenv('MAIL_PORT'),
-         ],
+        'determineRouteBeforeAppMiddleware' => false,
+        'db' => [
+            'driver' => 'mysql',
+            'host' => getenv('MYSQL_HOST'),
+            'database' => getenv('MYSQL_DATABASE'),
+            'username' => getenv('MYSQL_USER'),
+            'password' => getenv('MYSQL_PASSWORD'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ],
 
         'logger' => [
             'name' => 'logger',

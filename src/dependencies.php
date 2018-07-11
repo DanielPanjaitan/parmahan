@@ -9,6 +9,27 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-$container['mailer'] = function($container) {
-    return new Nette\Mail\SmtpMailer($container['settings']['mailer']);
+$container['view'] = function($container){
+    $view = new \Slim\Views\Twig(__DIR__ . '/../templates', [
+        'cache' => false,
+        'debug' => true
+    ]);
+
+    // Add Extension
+    $view->addExtension(new \Slim\Views\TwigExtension(
+        $container->router,
+        $container->request->getUri()
+    ));
+
+    return $view;
+};
+
+$container['db'] = function ($container) {
+    $capsule = new \Illuminate\Database\Capsule\Manager;
+    $capsule->addConnection($container['settings']['db']);
+
+    $capsule->setAsGlobal();
+    $capsule->bootEloquent();
+
+    return $capsule;
 };
